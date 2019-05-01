@@ -45,6 +45,9 @@
                                         <state key="normal" title="START" backgroundImage="blue-button-trimmed">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GtB-VE-JSW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9db-QY-IKr">
                                         <rect key="frame" x="0.0" y="395.5" width="382" height="60"/>
@@ -52,6 +55,9 @@
                                         <state key="normal" title="RESET" backgroundImage="blue-button-trimmed">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hog-BV-7y3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

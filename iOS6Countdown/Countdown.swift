@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol CountdownDelegate: AnyObject {
+    func countdownDidUpdate(timeRemaining: TimeInterval)
+    func countdownDidFinish()
+}
+
 class Countdown {
     
     // Mark time started
@@ -27,9 +32,11 @@ class Countdown {
         self.duration = duration
         self.timeRemaining = duration
         
+        // Projected date into the future
         stopDate = Date(timeIntervalSinceNow: duration)
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
+        // Start a timer to update continuously
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
     }
     
     func stop() {
@@ -38,6 +45,7 @@ class Countdown {
     
     func reset() {
         stopDate = nil
+        timeRemaining = 0
     }
     
     @objc func update(timer: Timer) {
@@ -45,10 +53,28 @@ class Countdown {
         // Calculate time remaining
         // stopDate - currentTime = timeRemaining
         if let stopDate = stopDate {
+            
             let currentTime = Date()
-            timeRemaining = stopDate.timeIntervalSince(currentTime)
-            print("Time Remaining: \(timeRemaining)")
+            
+            if currentTime <= stopDate {
+                // Timer is active, keep counting
+                
+                timeRemaining = stopDate.timeIntervalSince(currentTime)
+                print("Time Remaining: \(timeRemaining)")
+                delegate?.countdownDidUpdate(timeRemaining: timeRemaining)
+                
+            } else {
+                // currentTime > stopDate
+                clearTimer()
+                reset()
+                delegate?.countdownDidFinish()
+            }
         }
+    }
+    
+    private func clearTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     var timer: Timer?
@@ -56,7 +82,7 @@ class Countdown {
     var stopDate: Date?
     var timeRemaining: TimeInterval  // 3.5 number of seconds (Double)
     var duration: TimeInterval
-    // TODO: delegate
+    weak var delegate: CountdownDelegate?
     
     // 3.5 seconds = 00:00:03.50
     // 0.03 seconds = 00:00:00.03
