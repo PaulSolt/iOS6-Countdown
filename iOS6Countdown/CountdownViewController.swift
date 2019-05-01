@@ -14,13 +14,16 @@ class CountdownViewController: UIViewController {
         super.viewDidLoad()
         datePicker.countDownDuration = 60
         countdown.delegate = self
+        
+        // Fixed width font for numbers
+        timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeLabel.font.pointSize, weight: .medium)
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
         
         // get duration?
         let duration = datePicker.countDownDuration
-        countdown.start(duration: duration)
+        countdown.start(duration: 5) // duration)
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
@@ -35,6 +38,13 @@ class CountdownViewController: UIViewController {
 //        timeLabel.text = "\(countdown.timeRemaining)"
         let date = Date(timeIntervalSinceReferenceDate: countdown.timeRemaining)
         timeLabel.text = dateFormatter.string(from: date)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Timer Finished", message: "Your countdown has finished.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet var datePicker: UIDatePicker!
@@ -59,6 +69,7 @@ extension CountdownViewController: CountdownDelegate {
     func countdownDidFinish() {
         updateViews()
         print("FINISHED")
+        showAlert()
     }
     
     func countdownDidUpdate(timeRemaining: TimeInterval) {
