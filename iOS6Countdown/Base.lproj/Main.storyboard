@@ -21,11 +21,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F3P-UE-XJb">
                                 <rect key="frame" x="16" y="366.5" width="382" height="455.5"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fVk-rs-Y8P">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fVk-rs-Y8P">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="578420202.41578901">
                                             <!--2019-05-01 16:16:42 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="datePickerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OL-Xn-PI6"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DSY-b6-ijQ">
                                         <rect key="frame" x="0.0" y="224" width="382" height="95.5"/>
@@ -64,6 +67,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="fVk-rs-Y8P" id="xCx-Bb-yu5"/>
+                        <outlet property="resetButton" destination="9db-QY-IKr" id="kVv-ib-Rsb"/>
+                        <outlet property="startButton" destination="anB-Wu-dfU" id="ED7-H4-IK4"/>
+                        <outlet property="timeLabel" destination="DSY-b6-ijQ" id="yPs-xG-eU0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
