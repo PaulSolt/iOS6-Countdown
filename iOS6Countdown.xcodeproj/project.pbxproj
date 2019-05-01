@@ -12,6 +12,7 @@
 		BD40A7732279FBEC00EB0F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD40A7722279FBEC00EB0F35 /* Assets.xcassets */; };
 		BD40A7762279FBEC00EB0F35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD40A7742279FBEC00EB0F35 /* LaunchScreen.storyboard */; };
 		BDBA293D227A0179007013EC /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA293C227A0179007013EC /* CountdownViewController.swift */; };
+		BDBA293F227A0593007013EC /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBA293E227A0593007013EC /* Countdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BD40A7752279FBEC00EB0F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD40A7772279FBEC00EB0F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDBA293C227A0179007013EC /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		BDBA293E227A0593007013EC /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				BD40A76B2279FBEB00EB0F35 /* AppDelegate.swift */,
 				BD40A76F2279FBEB00EB0F35 /* Main.storyboard */,
+				BDBA293E227A0593007013EC /* Countdown.swift */,
 				BDBA293C227A0179007013EC /* CountdownViewController.swift */,
 				BD40A7722279FBEC00EB0F35 /* Assets.xcassets */,
 				BD40A7742279FBEC00EB0F35 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				BDBA293D227A0179007013EC /* CountdownViewController.swift in Sources */,
 				BD40A76C2279FBEB00EB0F35 /* AppDelegate.swift in Sources */,
+				BDBA293F227A0593007013EC /* Countdown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
