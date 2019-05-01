@@ -32,7 +32,9 @@ class CountdownViewController: UIViewController {
     }
     
     private func updateViews() {
-        timeLabel.text = "\(countdown.timeRemaining)"
+//        timeLabel.text = "\(countdown.timeRemaining)"
+        let date = Date(timeIntervalSinceReferenceDate: countdown.timeRemaining)
+        timeLabel.text = dateFormatter.string(from: date)
     }
     
     @IBOutlet var datePicker: UIDatePicker!
@@ -42,6 +44,15 @@ class CountdownViewController: UIViewController {
     
     let countdown = Countdown()
 
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        
+        // customize it to show 00:00:00.00
+        formatter.dateFormat = "HH:mm:ss.SS"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        return formatter
+    }()
 }
 
 extension CountdownViewController: CountdownDelegate {
