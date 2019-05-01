@@ -36,14 +36,16 @@ class Countdown {
         stopDate = Date(timeIntervalSinceNow: duration)
         
         // Start a timer to update continuously
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
     }
     
     func stop() {
+        // TODO: Finish logic
         stopDate = nil
     }
     
     func reset() {
+        // TODO: Finish logic + connect to UI
         stopDate = nil
         timeRemaining = 0
     }
@@ -86,5 +88,4 @@ class Countdown {
     
     // 3.5 seconds = 00:00:03.50
     // 0.03 seconds = 00:00:00.03
-    
 }
