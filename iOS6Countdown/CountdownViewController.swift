@@ -20,10 +20,9 @@ class CountdownViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        
-        // get duration?
         let duration = datePicker.countDownDuration
-        countdown.start(duration: 5) // duration)
+        countdown.start(duration: duration)
+//        countdown.start(duration: 5) // Test with 5 seconds
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
